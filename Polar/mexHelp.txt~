@@ -1,0 +1,32 @@
+First open matlab.
+Setup:
+mex -setup C++
+
+this will setup mex. you can also just run 'mex -setup'. then it will be C.
+
+
+Basics:
+Function name must be the FileName of the file (just like matlab).
+But the function name inside must be 'mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])'... this is like the main() function in c. This is where the matlab enters the c file. 
+
+Example:
+HelloWorld.cpp
+
+if you want to print stuff from c++/c on to matlab terminal use : mexPrintf("bla bla bla");
+
+handling input outputs. See HelloWorld.cpp
+
+list size 1
+ 48.713557    with mex
+50.676302      without mex
+
+list size 2
+ 62.333820 without mex for 1e3
+ 59.019538 with mex for 1e3
+
+
+
+matlabpool('size')
+
+
+matlabpool open 2

@@ -1,0 +1,46 @@
+% clear all
+% close all
+N=128; %should be greater than 32 because CRC=8 and N=1/2
+K=N/2;
+EbN0dBrange=1.5:0.5:3;
+L_vec = 8;
+designSNRdB=2;
+MCsize =1e2;
+format long
+
+for k=1:length(L_vec)
+    L = L_vec(k);
+    plotPC(N,K,L,EbN0dBrange,designSNRdB,MCsize)
+end
+
+subplot(211);
+legend('L=1','L=2','L=4','L=8', 'L=16','L=32');
+hold on ;
+subplot(212);
+legend('L=1','L=2','L=3','L=4', 'L=5','L=6', 'L=7','L=8');
+hold on ;
+clear all
+close all
+% N=[128 256 512 1024];
+N_vec = [128];
+
+L=4;
+EbN0dBrange=0:1:4;
+designSNRdB=2;
+MCsize=1e5; %Monte Carlo size
+format long
+
+for n=1:length(N_vec)
+    N = N_vec(n);
+    K=N/2 ;
+
+    plotPC(N,K,L,EbN0dBrange,designSNRdB,MCsize)
+ 
+end
+
+% legend('N=4','N=8');
+
+
+
+
+
